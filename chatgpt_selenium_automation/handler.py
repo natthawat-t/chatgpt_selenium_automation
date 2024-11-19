@@ -124,7 +124,8 @@ class ChatGPTAutomation:
         """ :return: the text of the last chatgpt response """
 
         response_elements = self.driver.find_elements(by=By.CSS_SELECTOR, value='div.text-base')
-        return response_elements[-1].text
+        return response_elements[-3]
+        return response_elements[-3].text
 
     @staticmethod
     def wait_for_human_verification():
