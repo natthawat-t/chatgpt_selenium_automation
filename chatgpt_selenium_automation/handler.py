@@ -77,7 +77,7 @@ class ChatGPTAutomation:
         self.driver.execute_script(f"arguments[0].innerHTML = '{prompt}';", input_box)
         input_box.send_keys(Keys.RETURN)
         input_box.submit()
-        # self.check_response_ended()
+        self.check_response_ended()
 
     def check_response_ended(self):
         """ Checks if ChatGPT response ended """
