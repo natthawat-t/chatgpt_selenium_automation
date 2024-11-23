@@ -75,6 +75,7 @@ class ChatGPTAutomation:
 
         input_box = self.driver.find_element(By.ID, "prompt-textarea")
         self.driver.execute_script(f"arguments[0].innerHTML = '{prompt}';", input_box)
+        time.sleep(1)
         input_box.send_keys(Keys.RETURN)
         input_box.submit()
         self.check_response_ended()
@@ -86,7 +87,7 @@ class ChatGPTAutomation:
                 by=By.CSS_SELECTOR, value='button.text-token-text-tertiary')) < 1:
             time.sleep(0.5)
             # Exit the while loop after 60 seconds anyway
-            if time.time() - start_time > 20:
+            if time.time() - start_time > 30:
                 break
         time.sleep(1)  # the length should be =4, so it's better to wait a moment to be sure it's really finished
 
